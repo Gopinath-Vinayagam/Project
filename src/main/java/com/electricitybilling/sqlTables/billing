@@ -1,0 +1,21 @@
+CREATE TABLE electricity_billing_details(
+customer_id BIGINT NOT NULL ,
+customer_name VARCHAR(50) NOT NULL,
+unit_consumed INT,
+bill_due_date DATE ,
+bill_amount INT,
+penalty INT, 
+billing_status VARCHAR(100),
+finalized_total INT,
+FOREIGN KEY (customer_id)REFERENCES electricity_registration_details (customer_id)
+);
+SELECT*FROM electricity_billing_details;
+INSERT INTO electricity_billing_details(customer_id,customer_name,unit_consumed,bill_due_date,bill_amount,penalty,billing_status,finalized_total) 
+VALUE('96400000000','Gopinath','100','22.3.2022','470','10','completed','480');
+DROP TABLE electricity_billing_details;
+ALTER TABLE  ADD FOREIGN KEY electricity_registration_details (customer_id) REFERENCE  electricity_billing_details(customer_id);
+INSERT INTO electricity_billing_details(customer_id,customer_name,unit_consumed,bill_due_date,bill_amount,penalty,billing_status,finalized_total) 
+VALUE('96400000001','Mano','200','22.3.2022','170','0','completed','170');
+INSERT INTO electricity_billing_details(customer_id,customer_name,unit_consumed,bill_due_date,bill_amount,penalty,billing_status,finalized_total) 
+VALUE('96400000002','raj','100','22.3.2022','0','0','completed','0');
+

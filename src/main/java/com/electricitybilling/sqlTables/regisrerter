@@ -1,0 +1,24 @@
+CREATE TABLE electricity_registration_details(
+customer_id BIGINT PRIMARY KEY  NOT NULL,
+customer_name VARCHAR(50) NOT NULL,
+user_name VARCHAR(50) NOT NULL,
+phone_no VARCHAR(10) NOT NULL,
+user_Age INT NOT NULL,
+address VARCHAR(100)NOT NULL,
+email_id VARCHAR(50) NOT NULL UNIQUE,
+consumer_Type VARCHAR(50),
+PASSWORD VARCHAR(50),
+reg_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+UNIQUE (email_id),
+CHECK(LENGTH(PASSWORD)>=8),
+UNIQUE (phone_no)
+
+);
+SELECT * FROM electricity_registration_details;
+DROP TABLE  electricity_registration_details;
+INSERT INTO electricity_registration_details(customer_id,customer_name,user_name,email_id,phone_no,user_Age,address,consumer_Type,PASSWORD) 
+VALUE('96400000000','Gopinath','gopinath','g@gmail.com','7339099564','29','no.6','Domestic','PASS12345'); 
+INSERT INTO electricity_registration_details(customer_id,customer_name,user_name,email_id,phone_no,user_Age,address,consumer_Type,PASSWORD) 
+VALUE('96400000001','MANO','mano','M@gmail.com','7339099566','30','no.7','Domestic','PASSword123');
+INSERT INTO electricity_registration_details(customer_id,customer_name,user_name,email_id,phone_no,user_Age,address,consumer_Type,PASSWORD) 
+VALUE('96400000002','Raju','raj','r@gmail.com','7339099569','31','no.6','commercial','pass12345');
